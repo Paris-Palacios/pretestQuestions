@@ -44,7 +44,7 @@ public class QuantityAvailableService {
 
         return getInventories().stream()
                 .filter(inventory -> inventory.getProductId().equalsIgnoreCase(productId) &&
-                        inventory.getAvailDate().isBefore(dateInRange))
+                        inventory.getAvailDate().isBefore(dateInRange) && inventory.getAvailDate().isAfter(reqDate) )
                 .collect(Collectors.toList());
     }
 }
